@@ -14,12 +14,20 @@ class TestIngredientsMocked:
         Ingredient('INGREDIENT_TYPE_FILLING', 'pineaple meat', 100),
         Ingredient('INGREDIENT_TYPE_FILLING', 'shark noses', 350)
     ]
-    def test_ingredient(self):
+    def test_ingredient_name(self):
         ingredient = random.choice(self.mock_available_ingredients())
         name = ingredient.name
-        price = ingredient.price
-        ingredient_type = ingredient.type
         factual_name = ingredient.get_name()
+        assert name == factual_name
+
+    def test_ingredient_price(self):
+        ingredient = random.choice(self.mock_available_ingredients())
+        price = ingredient.price
         factual_price = ingredient.get_price()
+        assert price == factual_price
+
+    def test_ingredient_type(self):
+        ingredient = random.choice(self.mock_available_ingredients())
+        ingredient_type = ingredient.type
         factual_type = ingredient.get_type()
-        assert name == factual_name and price == factual_price and ingredient_type == factual_type
+        assert ingredient_type == factual_type

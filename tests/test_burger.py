@@ -4,6 +4,19 @@ from praktikum.burger import Burger
 import pytest
 
 
+def test_get_receipt():
+    bun_name = 'simple_bun'
+    bun = Bun(name=bun_name, price=1.1)
+    ingredient1 = Ingredient('INGREDIENT_TYPE_SAUCE', 'red_hot_chili_sauce', 0.0)
+    ingredient2 = Ingredient('INGREDIENT_TYPE_FILLING', 'pineaple meat', 100)
+    burger = Burger()
+    burger.set_buns(bun)
+    burger.add_ingredient(ingredient1)
+    burger.add_ingredient(ingredient2)
+    receipt = burger.get_receipt()
+    assert bun.get_name() in receipt and ingredient1.get_name() in receipt and ingredient2.get_name() in receipt
+
+
 def test_burger_buns_only():
     bun = Bun(name='simple_bun', price=1.1)
     burger = Burger()
