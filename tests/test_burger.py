@@ -14,7 +14,7 @@ def test_get_receipt():
     burger.add_ingredient(ingredient1)
     burger.add_ingredient(ingredient2)
     receipt = burger.get_receipt()
-    assert bun.get_name() in receipt and ingredient1.get_name() in receipt and ingredient2.get_name() in receipt
+    assert '(==== simple_bun ====)' in receipt and '= ingredient_type_sauce red_hot_chili_sauce =' in receipt and'= ingredient_type_filling pineaple meat =' in receipt
 
 
 def test_burger_buns_only():
